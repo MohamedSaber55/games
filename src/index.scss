@@ -1,0 +1,604 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@400;600;700;800&family=Creepster&family=Lobster&family=Luckiest+Guy&family=Pixelify+Sans&family=Press+Start+2P&family=Work+Sans:wght@200;300;400;500;600;700&family=Yuji+Hentaigana+Akari&family=Yuji+Mai&display=swap');
+
+:root {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --black: #04152d;
+  --black2: #041226;
+  --main: #00103d;
+  --black3: #020c1b;
+  --black-light: #173d77;
+  --black-lighter: #1c4b91;
+  // --black-lighter: hsl(283,90%,50%);
+  // --black-lighter: hsl(193,90%,50%);
+  // --black-lighter: hsl(253, 84%, 58%);
+  --pink: #da2f68;
+  --orange: #f89e00;
+  --gradient: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+}
+
+.font-pixelify {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+// .font-work {
+//   font-family: 'Work Sans', sans-serif;
+// }
+
+.font-shoulders {
+  font-family: 'Big Shoulders Stencil Display', sans-serif;
+}
+
+.font-Creepster {
+  font-family: 'Creepster', sans-serif;
+}
+
+.font-lobster {
+  font-family: 'Lobster', sans-serif;
+}
+
+.font-press {
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+.font-luckiest {
+  font-family: 'Luckiest Guy', sans-serif;
+}
+
+.font-yuji {
+  font-family: 'Yuji Hentaigana Akari', sans-serif;
+}
+
+.font-yuji-mai {
+  font-family: 'Yuji Mai', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main);
+  color: rgb(241, 241, 241);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #0a2955;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(90deg,
+        rgba(#193763, 0) 0,
+        rgba(#193763, 0.2) 20%,
+        rgba(#193763, 0.5) 60%,
+        rgba(#193763, 0));
+    animation: shimmer 2s infinite;
+    content: "";
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 425px) {
+  .container {
+    max-width: 100%;
+    // padding: 0 5px;
+  }
+}
+
+@media (min-width: 425px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+// --------------------------header-------------------------------------------
+
+.ScrollToTopBTN{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.react-select-container {
+  .react-select__control {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background-color: var(--black-light);
+    border-radius: 4px;
+
+    .react-select__value-container {
+
+      .react-select__placeholder,
+      .react-select__input-container {
+        color: white;
+      }
+    }
+
+    .react-select__single-value {
+      color: white;
+    }
+  }
+
+  .react-select__menu {
+    top: 40px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// .game:hover {
+//   // transform: matrix(0, 1, 1, 0, 0, 0);
+//   // transform: matrix(1, 1, 0, 1, 100, 100);
+//   // transform: matrix(0.707, -0.707, 0.707, 0.707, 100, 100);
+//   animation: matrix 0.3s linear;
+// }
+
+// @keyframes matrix {
+//   0% {
+//     transform: matrix(0, 1, 1, 0, 0, 0);
+//   }
+
+//   100% {
+//     transform: matrix(1, 0, 0, 1, 0, 0);
+//   }
+// }
+
+// --------------------------loading-------------------------------------------
+
+.pl {
+  display: block;
+  margin: auto;
+  width: 16em;
+  height: auto;
+}
+
+.pl line {
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.pl__line1,
+.pl__line9 {
+  animation-name: line1;
+}
+
+.pl__line2,
+.pl__line8 {
+  animation-name: line2;
+}
+
+.pl__line3,
+.pl__line7 {
+  animation-name: line3;
+}
+
+.pl__line4,
+.pl__line6 {
+  animation-name: line4;
+}
+
+.pl__line5 {
+  animation-name: line5;
+}
+
+/* Animations */
+@keyframes line1 {
+
+  from,
+  8% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  18% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  28% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  38% {
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  48% {
+    opacity: 1;
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  53% {
+    opacity: 0;
+    stroke-dashoffset: 31.99;
+    transform: translate(8px, 16px);
+  }
+
+  56% {
+    animation-timing-function: steps(1, start);
+    opacity: 0;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  60% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  70% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  80% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  90% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  to {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+}
+
+@keyframes line2 {
+
+  from,
+  6% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  16% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  26% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  36% {
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  46% {
+    opacity: 1;
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  51% {
+    opacity: 0;
+    stroke-dashoffset: 31.99;
+    transform: translate(8px, 16px);
+  }
+
+  54% {
+    animation-timing-function: steps(1, start);
+    opacity: 0;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  58% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  68% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  78% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  88% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  98%,
+  to {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+}
+
+@keyframes line3 {
+
+  from,
+  4% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  14% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  24% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  34% {
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  44% {
+    opacity: 1;
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  49% {
+    opacity: 0;
+    stroke-dashoffset: 31.99;
+    transform: translate(8px, 16px);
+  }
+
+  52% {
+    animation-timing-function: steps(1, start);
+    opacity: 0;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  56% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  66% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  76% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  86% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  96%,
+  to {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+}
+
+@keyframes line4 {
+
+  from,
+  2% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  12% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  22% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  32% {
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  42% {
+    opacity: 1;
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  47% {
+    opacity: 0;
+    stroke-dashoffset: 31.99;
+    transform: translate(8px, 16px);
+  }
+
+  50% {
+    animation-timing-function: steps(1, start);
+    opacity: 0;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  54% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    stroke-dashoffset: 32;
+    transform: translate(0, 16px);
+  }
+
+  64% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  74% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  84% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  94%,
+  to {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+}
+
+@keyframes line5 {
+  from {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  10% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  20% {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  30% {
+    stroke-dashoffset: 0;
+    transform: translate(0, 0);
+  }
+
+  40% {
+    stroke-dashoffset: -16;
+    transform: translate(0, 15px);
+  }
+
+  50% {
+    stroke-dashoffset: -31;
+    transform: translate(0, -48px);
+  }
+
+  58% {
+    stroke-dashoffset: -31;
+    transform: translate(0, 8px);
+  }
+
+  65% {
+    stroke-dashoffset: -31.99;
+    transform: translate(0, -24px);
+  }
+
+  71.99% {
+    animation-timing-function: steps(1);
+    stroke-dashoffset: -31.99;
+    transform: translate(0, -16px);
+  }
+
+  72% {
+    animation-timing-function: ease-in-out;
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+
+  82% {
+    stroke-dashoffset: 16;
+    transform: translate(0, 8px);
+  }
+
+  92%,
+  to {
+    stroke-dashoffset: 31.99;
+    transform: translate(0, 16px);
+  }
+}

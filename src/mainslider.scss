@@ -1,0 +1,32 @@
+/*=====================
+    start swiper 
+==========================*/
+.swiper-button-next,
+.swiper-button-prev {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: .4s ease;
+    color: #ff8800;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px !important;
+}
+
+.swiper:hover .swiper-button-next,
+.swiper:hover .swiper-button-prev {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    display: none;
+}
